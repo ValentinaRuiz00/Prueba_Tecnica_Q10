@@ -15,6 +15,5 @@ namespace Repository
             bool Add(EmployeerEntity oemployee);
             bool Update(EmployeerEntity oemployee);
             bool Delete(int IdEmployeers);
-        
     }
 }
