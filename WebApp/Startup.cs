@@ -1,13 +1,11 @@
+using Logic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Repository;
+using Repository.Conection;
 
 namespace WebApp
 {
@@ -23,7 +21,11 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews();
+            services.AddScoped<IEmployeeLogic, EmployeeLogic>();
+            services.AddScoped<IEmployerRepository, EmployeerRepository>();
+            services.AddScoped<IConexion, Conexion>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
