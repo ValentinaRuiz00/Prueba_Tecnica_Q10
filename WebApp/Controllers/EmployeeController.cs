@@ -59,9 +59,9 @@ namespace WebApp.Controllers
         //Método para eliminar empleado
 
         [HttpPost]
-        public JsonResult Delete(int IdEmployeers)
+        public JsonResult Delete(int id)
         {
-            return Json(_employeeLogic.Get(IdEmployeers));
+            return Json(_employeeLogic.Delete(id));
         }
 
     }

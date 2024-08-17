@@ -22,7 +22,7 @@
                     "<td>" + item.salary + "</td>" +
                     "<td class='d-flex justify-content-center align-items-center d-grid gap-3'>" +
                     "<button class='bi bi-pencil-square btn btn-primary btn-sm' onclick='updateEmployee(" + item.idEmployeers + ")'>Update</button >" +
-                    "<button class='btn btn-danger btn-sm bi bi-trash3 ml-1' data-id='" + item.idEmployeers + "'>Delete</button>" +
+                    "<button class='btn btn-danger btn-sm bi bi-trash3 ml-1' onclick='eliminarRegistro(" + item.idEmployeers + ")'>Delete</button>" +
                     "</td>"
                 "</tr>";
                 $("#ListEmployee tbody").append(row);
@@ -41,6 +41,32 @@
 
 function updateEmployee(id) {
     window.location.href = '/Employee/Update/' + id;
+}
+
+function eliminarRegistro(id) {
+    showSpinner();
+
+    $.ajax({
+        url: 'Employee/Delete/' + id, // URL del método del controlador
+        type: 'POST', // Tipo de solicitud
+        dataType: 'json', // Tipo de datos que esperas
+        success: function (data) {
+            if (data) {
+                alert("Se ha eliminado correctamente el registro");
+            } else {
+                alert("Ha ocurrido un error a intentar eliminar el registro");
+            }
+            obtenerDatos();
+        },
+        error: function (error) {
+            // Maneja errores
+            alert("An error occurred: " + error);
+
+        },
+        complete: function () {
+            hideSpinner();
+        }
+    });
 }
 
 $(document).ready(function () {
