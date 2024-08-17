@@ -35,18 +35,25 @@ namespace WebApp.Controllers
         }
 
         //Método que devulve la vista
-        public IActionResult Update(int IdEmployeers)
+        public IActionResult Update(int id)
         {
 
-            var oEmployee = _employeeLogic.Get(IdEmployeers);
+            var oEmployee = _employeeLogic.Get(id);
             return View(oEmployee);
         }
 
         //Método para editar un empleado
         [HttpPost]
-        public JsonResult Update(EmployeerEntity oEmployee)
+        public IActionResult Update(EmployeerEntity oEmployee)
         {
-            return Json(_employeeLogic.Update(oEmployee));
+            if (!ModelState.IsValid)
+                return View();
+            var rpta = _employeeLogic.Update(oEmployee);
+
+            if (rpta)
+                return RedirectToAction("");
+            else
+                return View();
         }
 
         //Método para eliminar empleado

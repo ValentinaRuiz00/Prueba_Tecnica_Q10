@@ -57,6 +57,7 @@ namespace Repository
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("sp_get_employee", conexion);
+                cmd.Parameters.AddWithValue("IdEmployee", IdEmployeers);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())

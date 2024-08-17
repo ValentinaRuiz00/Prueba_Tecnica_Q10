@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Model.Entities;
+
+
+@model EmployeerEntity;
+@{ 
+
+}
+
+<div class="card">
+    <div class="card-header">
+        Actualizar Empleado
+    </div>
+    <div class="card-body">
+        <form id="Update" asp-action="Update" asp-controller="Employee" method="post">
+            <input asp-for="IdEmployeers" type="hidden" class="form-control">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Name</label>
+                    <input asp-for="Name" type="text" class="form-control form-control-sm" placeholder="Ingrese el nombre">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Position</label>
+                    <input asp-for="Position" type="text" class="form-control" placeholder="Ingrese el puesto">
+                    <span asp-validation-for="Position" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Office</label>
+                    <input  asp-for="Office" type="text" class="form-control" placeholder="Ingrese la oficina">
+                    <span asp-validation-for="Office" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Salary</label>
+                    <input  asp-for="Salary" type="text" class="form-control" placeholder="Ingrese el salario">
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+            </div>
+            <button id="buttonUpdate" type="submit" class="btn btn-primary">Actualizar</button>
+            <a asp-action="" asp-controller="Employee" class="btn btn-secondary">Volver a la lista</a>
+        </form>
+    </div>
+</div>
