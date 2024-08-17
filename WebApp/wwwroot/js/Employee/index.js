@@ -21,14 +21,14 @@
                     "<td>" + item.office + "</td>" +
                     "<td>" + item.salary + "</td>" +
                     "<td class='d-flex justify-content-center align-items-center d-grid gap-3'>" +
-                    "<a class='bi bi-pencil-square btn btn-primary btn-sm' >Update</a >" +
-                    "<a class='btn btn-danger btn-sm bi bi-trash3 ml-1'>Delete</a>" +
+                    "<button class='bi bi-pencil-square btn btn-primary btn-sm' onclick='updateEmployee(" + item.idEmployeers + ")'>Update</button >" +
+                    "<button class='btn btn-danger btn-sm bi bi-trash3 ml-1' data-id='" + item.idEmployeers + "'>Delete</button>" +
                     "</td>"
                 "</tr>";
                 $("#ListEmployee tbody").append(row);
             });
         },
-        error: function (xhr, status, error) {
+        error: function (error) {
             // Maneja errores
             alert("An error occurred: " + error);
 
@@ -37,6 +37,10 @@
             hideSpinner();
         }
     });
+}
+
+function updateEmployee(id) {
+    window.location.href = '/Employee/Update/' + id;
 }
 
 $(document).ready(function () {
