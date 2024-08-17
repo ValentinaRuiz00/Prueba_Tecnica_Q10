@@ -64,7 +64,7 @@ namespace Repository
                 {
                     while (dr.Read())
                     {
-                        IdEmployeers = Convert.ToInt32(dr["IdEmployee"]);
+                        oEmployee.IdEmployeers = Convert.ToInt32(dr["IdEmployee"]);
                         oEmployee.Name = dr["NameEmployee"].ToString();
                         oEmployee.Position = dr["Position"].ToString();
                         oEmployee.Office = dr["Office"].ToString();
