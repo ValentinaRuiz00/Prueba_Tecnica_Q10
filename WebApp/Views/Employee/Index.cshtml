@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Nuevo Empleado
+    </div>
+    <div class="card-body">
+        <form id="Add" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Name</label>
+                    <input name="Name" type="text" class="form-control" placeholder="Ingrese el nombre">
+                    <span class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Position</label>
+                    <input name="Position" type="text" class="form-control" placeholder="Ingrese el puesto">
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label class="form-label">Office</label>
+                    <input name="Office" type="text" class="form-control" placeholder="Ingrese la oficina">
+                    <span class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Salary</label>
+                    <input name="Salary" type="text" class="form-control" placeholder="Ingrese el salario">
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+
+            <button id="buttonAdd" type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-success">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class=" card-header">
+        Lista Empleados
+    </div>
+    <div class="card-body">
+        <table id="ListEmployee" class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Office</th>
+                    <th scope="col">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Name</td>
+                    <td>Position</td>
+                    <td>Office</td>
+                    <td>Salary</td>
+                    <td class="d-flex justify-content-center align-items-center d-grid gap-3">
+                        <a class="bi bi-pencil-square btn btn-primary btn-sm">Add</a>
+                        <a class="btn btn-danger btn-sm bi bi-trash3">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
